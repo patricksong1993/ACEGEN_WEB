@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="bower_components/semantic/dist/semantic.css">
+    <link rel="stylesheet" type="text/css" href="css/acegen.css">
+
+    <title>Player Metrics - Single Player</title>
+</head>
+<body>
+
+<div class="ui fixed menu inverted mini" style="background-color: #4183D7;">
+    <div class="ui container">
+        <a href="#" class="header item">
+            IMPACT
+        </a>
+        <div class="ui simple dropdown item">
+            Player Metrics <i class="dropdown icon"></i>
+            <div class="menu">
+                <!--<a href="/ACEGEN_WEB/player_metrics_single.html" class="item">Single Player</a>-->
+                <a href="/ACEGEN_WEB/player_metrics_multi.html" class="item">Multi Player Comparison</a>
+                <!--<div class="divider"></div>-->
+                <!--<div class="header">Header Item</div>-->
+                <!--<div class="item">-->
+                    <!--<i class="dropdown icon"></i>-->
+                    <!--Sub Menu-->
+                    <!--<div class="menu">-->
+                        <!--<a class="item" href="#">Link Item</a>-->
+                        <!--<a class="item" href="#">Link Item</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<a class="item" href="#">Link Item</a>-->
+            </div>
+        </div>
+        <!--<div class="ui simple dropdown item">-->
+            <!--Match Predictor <i class="dropdown icon"></i>-->
+            <!--<div class="menu">-->
+                <!--<div class="header">TODO</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>
+
+<div class="ui" style="background-color: #E4F1FE; width: 217px; height: 100%; padding-top: 40px;">
+
+    <div class="ui buttons config basic">
+        <button class="ui button" id="get_player_stats">FETCH</button>
+        <button class="ui button" id="reset_configs">RESET</button>
+    </div>
+
+    <div class="ui divider config"></div>
+    <select name="states" class="ui selection search dropdown config" multiple="" id="player_name">
+        <option value="">Player Name</option>
+        <option value="Novak Djokovic">Novak Djokovic</option>
+        <option value="Andy Murray">Andy Murray</option>
+        <option value="Roger Federer">Roger Federer</option>
+        <option value="Stan Wawrinka">Stan Wawrinka</option>
+        <option value="Rafael Nadal">Rafael Nadal</option>
+        <option value="Kei Nishikori">Kei Nishikori</option>
+        <option value="Jo-Wilfried Tsonga">Jo-Wilfried Tsonga</option>
+        <option value="Tomas Berdych">Tomas Berdych</option>
+        <option value="David Ferrer">David Ferrer</option>
+        <option value="Richard Gasquet">Richard Gasquet</option>
+        <option value="Milos Raonic">Milos Raonic</option>
+        <option value="Marin Cilic">Marin Cilic</option>
+        <option value="David Goffin">David Goffin</option>
+        <option value="Gael Monfils">Gael Monfils</option>
+        <option value="Dominic Thiem">Dominic Thiem</option>
+        <option value="John Isner">John Isner</option>
+        <option value="Roberto Bautista Agut">Roberto Bautista Agut</option>
+        <option value="Gilles Simon">Gilles Simon</option>
+        <option value="Kevin Anderson">Kevin Anderson</option>
+        <option value="Nick Kyrgios">Nick Kyrgios</option>
+    </select>
+
+    <select class="ui dropdown config" id="metrics_level">
+        <option value="">Breakdown Level</option>
+        <option value="set">Set</option>
+        <option value="game">Game</option>
+        <option value="point">Point</option>
+    </select>
+
+    <select class="ui dropdown config" id="serve_return">
+        <option value="">Serve/Return</option>
+        <option value="serve">Serve</option>
+        <option value="return">Return</option>
+    </select>
+
+    <select class="ui dropdown config" id="baseline_impact">
+        <option value="">Baseline/Impact</option>
+        <option value="baseline">Baseline</option>
+        <option value="impact">Impact</option>
+    </select>
+
+    <div class="inline field config">
+        <div class="ui toggle checkbox" id="two_step">
+            <input type="checkbox">
+            <label>Two-Step Metrics</label>
+        </div>
+    </div>
+
+    <div class="ui divider config"></div>
+
+    <select class="ui dropdown config half left" id="start_year">
+        <option value="">Start Year</option>
+        <option value="2011" selected="selected">2011</option>
+        <option value="2012">2012</option>
+        <option value="2013">2013</option>
+        <option value="2014">2014</option>
+        <option value="2015">2015</option>
+        <option value="2016">2016</option>
+    </select>
+
+    <select class="ui dropdown config half right" id="end_year">
+        <option value="">End Year</option>
+        <option value="2011">2011</option>
+        <option value="2012">2012</option>
+        <option value="2013">2013</option>
+        <option value="2014">2014</option>
+        <option value="2015">2015</option>
+        <option value="2016" selected="selected">2016</option>
+    </select>
+
+    <select class="ui dropdown config half left" id="surface">
+        <option value="">Surface</option>
+        <option value="hard">Hard</option>
+        <option value="clay" selected="selected">Clay</option>
+        <option value="grass">Grass</option>
+        <option value="indoor">Indoor</option>
+    </select>
+
+    <select class="ui dropdown config half right" id="best_of">
+        <option value="">Match Sets</option>
+        <option value="3_sets" selected="selected">3 Sets</option>
+        <option value="5_sets">5 Sets</option>
+    </select>
+
+
+</div>
+
+<div style="height: 100%; width: calc(100% - 217px); padding-top: 40px; margin-left: 217px; margin-right: 100px; z-index:10; background-color: #FDFDFD; position: fixed; left: 0px; top: 0px;">
+    <div style="min-width: 100%; height: 100%; padding: 2em">
+        <div id="container" style="min-width: 100%; height: 100%; margin: 0 auto"></div>
+    </div>
+</div>
+
+
+</body>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/semantic/dist/semantic.js"></script>
+<script src="bower_components/Chart.js/Chart.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="js/player_metrics_multi.js"></script>
+
+</html>

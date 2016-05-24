@@ -1,0 +1,31 @@
+.ui.buttons.config {
+    margin-top: 6px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 196px;
+
+}
+
+.config {
+    margin-top: 6px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.ui.divider.config {
+    margin-top: 8px;
+    margin-bottom: 0px;;
+}
+
+.ui.dropdown.half {
+    min-width: 6.84em;
+}
+
+
+.ui.dropdown.half.left {
+    margin-right:1px;
+}
+
+.ui.dropdown.half.right {
+    margin-left:1px;
+}
